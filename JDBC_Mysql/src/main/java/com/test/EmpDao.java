@@ -1,0 +1,70 @@
+package com.test;
+import java.sql.Connection;
+import java.sql.DriverManager;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import java.util.ArrayList;
+import java.util.List;
+public class EmpDao {
+	public static Connection getCon()
+	{
+		String driver = "com.mysql.cj.jdbc.Driver";
+		String url = "jdbc:mysql://localhost:3306/mlafeb";
+		String user = "root";
+		String pas = "root@39";
+		Connection con = null;
+		
+		try {
+			Class.forName(driver);
+			con = DriverManager.getConnection(url, user, pas);
+		}catch(Exception e) {
+			e.printStackTrace();
+		}
+		return con;
+	}
+	
+	
+	public void saveEmployee(Employee1 emp) {
+		try {
+		String sql = "insert into employee(id, emp_name, company, city)values(?,?,?,?)"; // how many values so many ? we will put 
+	    Connection con = EmpDao.getCon();
+	    PreparedStatement pst = con.prepareStatement(sql);
+	    pst.setInt(1, emp.getId());
+	    pst.setString(2,  emp.getName());
+	    pst.setString(3,  emp.getCmp());
+	    pst.setString(4,  emp.getCity());
+	    
+	    pst.execute();
+	}catch(Exception e) {
+		e.printStackTrace();
+	}
+	
+	}
+	
+	public List<Employee1>getAllEmployees()
+	{
+		List<Employee1> empList = new ArrayList<>();
+		
+		try {
+			String sql = "select * from employee";
+			PreparedStatement pst = EmpDao.getCon()
+					.prepareStatement(sql);
+			ResultSet rs = pst.executeQuery();
+			
+			while(rs.next())
+			{
+				Employee1 emp = new Employee1();
+				
+				emp.setId(rs.getInt(1));
+				emp.setName(rs.getString(2));
+				emp.setCmp(rs.getString(3));
+				emp.setCity(rs.getString(4));
+				
+				empList.add(emp);
+			}
+		}catch(Exception e) {
+			e.printStackTrace();
+		}
+		return empList;
+	}
+}

@@ -9,6 +9,27 @@
 <title>Insert title here</title>
 </head>
 <body>
-
+       <c:set var="age" value="${19}" scope="session"></c:set>
+		
+		<c:out value="${age}" />
+		<c:if test="${age>18}">
+		<c:out value="age is valid"></c:out>
+		</c:if>
+		
+		<c:choose>
+		 <c:when test="${age >=18 }">
+		 <c:out value="eligible for voter id"></c:out>
+		 </c:when>
+		 
+		 <c:otherwise>
+		 <c:out value="not eligible"></c:out>
+		 </c:otherwise>
+		 </c:choose>
+		 
+		 
+		 <c:forEach var="dt" begin="1" end="10">
+		   <c:out value="${dt}"></c:out>
+		   </c:forEach>
+		 
 </body>
 </html>
