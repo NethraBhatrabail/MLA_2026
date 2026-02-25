@@ -1,0 +1,84 @@
+Date: 24/02/2026
+
+@Transactional
+We can annotate a class or method with @Transactional. We use the @Transactional annotation to separate transaction management code from the code that incorporates business logic. Let’s understand it with the help of an example. To illustrate, let’s assume that we have to develop a money transfer business logic in a Banking application. Then we will write code something like below:
+BankTransaction btx = entityManager.getTransaction(); 
+  try { 
+       btx.begin(); 
+       transferMoney(); 
+       btx.commit(); 
+  }
+  catch(Exception ex) {
+       btx.rollback(); 
+       throw ex; 
+  }
+Now, If we use @Transactional annotation, our code will look like below:
+@Transactional
+public void transferMoney() {
+      ...//logic to transfer money
+}
+This is the magic of @Transactional. You saw how @Transactional has separated the transaction management code from the actual business logic code.
+Guidelines to Use @Transactional Annotation
+
+1) Make sure to import correct package while applying @Transactional annotation. It comes under package:
+org.springframework.transaction.annotation //Spring
+On the other hand, Spring also provides support for @Transaction in the context of JPA. The @Transaction for JPA comes under package:
+javax.transaction    //JPA
+Both of them is used to tell container that the method is transactional. Hence, take extra care before importing the package that which one is applicable in your context.
+
+2) We can apply @Transactional at class, interface or method level, but it is not recommended to use it at an interface. However, it is acceptable in cases such as @Repository with Spring Data.
+
+3) When @Transactional annotation is declared at class level, it applies to all public methods of the declaring class by default. However, if we put the annotation on a private or protected method, Spring will ignore it without an error.
+
+4) The @Transactional annotation does not apply to inherited methods of its ancestor classes. To make them transactional, we need to locally redeclare those methods in this class or its subclasses.
+
+5) While applying @Transactional at the method level, make sure that the method is not already a transactional method. For example, if methods in your service class are internally using JpaRepository methods, then it is not required to apply @Transactional at your service class methods. This is because methods provided by JpaRepository are transactional by default.
+Attributes of @Transactional
+
+The @Transactional annotation supports various attributes in order to customize the behavior. Let’s discuss them one by one.
+1) isolation
+Isolation represents that how changes applied by concurrent transactions are visible to each other. Each isolation level prevents zero or more concurrency side effects on a transaction. Its type is Isolation. It is an enum with five values: DEFAULT, READ_UNCOMMITTED, READ_COMMITTED, REPEATABLE_READ, SERIALIZABLE. The default isolation value is Isolation.DEFAULT. For example:
+@Transactional(isolation = Isolation.READ_UNCOMMITTED)
+
+2) label 
+Label is used to describe the transaction. Its type is String [ ]. We can define zero(0) or more transaction descriptions. For example:
+@Transactional(label = {"Write the Transaction description for the method."})
+
+3) noRollbackFor 
+As the name suggests, it indicates something where no rollback should be applied to the transaction. Actually, it is talking about the exception classes for which there must not be a transaction rollback. It takes zero (0) or more exception Classes, which must be subclasses of Throwable. Remember that the Throwable class is the superclass of all errors and exceptions in the Java language. Therefore, its type is Class<? extends Throwable>[ ]. For example:
+@Transactional(noRollbackFor = {NullPointerException.class, ClassCastException.class})
+
+4) noRollbackForClassName
+The purpose of this attribute is the same as for noRollbackFor, but it accepts class names in string form. Hence, its type is String[ ]. In simple words, it takes zero (0) or more exception name patterns, which must be subclasses of Throwable. For example:
+@Transactional(noRollbackForClassName = {"NullPointerException", "ClassCastException"})
+
+5) rollbackFor 
+This attribute works as the opposite of the noRollbackFor. Actually, it is talking about the exception classes for which there must be a transaction rollback. It takes zero (0) or more exception Classes, which must be subclasses of Throwable. For example:
+@Transactional(rollbackFor = {NullPointerException.class, ClassCastException.class})
+
+6) rollbackForClassName
+Similarly, this attribute works as the opposite of the noRollbackForClassName. It accepts zero (0) or more exception name patterns (for exceptions which must be a subclass of Throwable), indicating which exception types must cause a transaction rollback. Its return type is String[ ]. For example:
+@Transactional(rollbackForClassName = {"NullPointerException", "ClassCastException"})
+
+7) propagation
+Propagation defines our business logic’s transaction boundary. Spring manages to start and pause a transaction according to our propagation setting. The Propagation is an enum type and it has values as MANDATORY, NESTED, NEVER, NOT_SUPPORTED, REQUIRED, REQUIRES_NEW and SUPPORTS. For example:
+@Transactional(propagation = Propagation.REQUIRED)
+
+8) readOnly
+It represents that the transaction is read-only. The default value is false. If it is true, it means that the transaction is read-only. On the other hand, the default value(false) indicates that the transaction is read-write. Obviously, its type is boolean. For example:
+@Transactional(readOnly = true)
+
+9) timeout 
+The timeout attribute indicates the timeout for the transaction in seconds. Its type is int. For example:
+@Transactional(timeout = 40)
+
+10) timeoutString
+The timeoutString attribute indicates the timeout for the transaction in seconds, but its type is String. For example:
+@Transactional(timeoutString = "40")
+
+11) transactionManager 
+If transaction manager bean name is transactionManager, then @Transactional annotation picks this name by default. If not, it will match qualifier value or bean name of a specific TransactionManager bean definition. For example:
+@Transactional(transactionManager = "myTransactionManager")
+
+12) value 
+The ‘value’ attribute is the alias for transactionManager attribute.
