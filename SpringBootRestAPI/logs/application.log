@@ -219,3 +219,52 @@ java.lang.IllegalArgumentException: Invalid character found in method name [0x16
 2026-03-04T17:14:01.152+05:30  INFO 11676 --- [SpringBootRestAPI] [RMI TCP Connection(13)-127.0.0.1] j.LocalContainerEntityManagerFactoryBean : Closing JPA EntityManagerFactory for persistence unit 'default'
 2026-03-04T17:14:01.155+05:30  INFO 11676 --- [SpringBootRestAPI] [RMI TCP Connection(13)-127.0.0.1] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown initiated...
 2026-03-04T17:14:01.184+05:30  INFO 11676 --- [SpringBootRestAPI] [RMI TCP Connection(13)-127.0.0.1] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown completed.
+2026-03-04T17:15:22.877+05:30  INFO 15848 --- [SpringBootRestAPI] [restartedMain] com.test.SpringBootRestApiApplication    : Starting SpringBootRestApiApplication using Java 25.0.1 with PID 15848 (C:\Users\nethra.k1\Desktop\mla_JAVA\SpringBootRestAPI\target\classes started by nethra.k1 in C:\Users\nethra.k1\Desktop\mla_JAVA\SpringBootRestAPI)
+2026-03-04T17:15:22.880+05:30  INFO 15848 --- [SpringBootRestAPI] [restartedMain] com.test.SpringBootRestApiApplication    : No active profile set, falling back to 1 default profile: "default"
+2026-03-04T17:15:22.921+05:30  INFO 15848 --- [SpringBootRestAPI] [restartedMain] .e.DevToolsPropertyDefaultsPostProcessor : Devtools property defaults active! Set 'spring.devtools.add-properties' to 'false' to disable
+2026-03-04T17:15:22.921+05:30  INFO 15848 --- [SpringBootRestAPI] [restartedMain] .e.DevToolsPropertyDefaultsPostProcessor : For additional web related logging consider setting the 'logging.level.web' property to 'DEBUG'
+2026-03-04T17:15:23.814+05:30  INFO 15848 --- [SpringBootRestAPI] [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2026-03-04T17:15:23.861+05:30  INFO 15848 --- [SpringBootRestAPI] [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 38 ms. Found 1 JPA repository interface.
+2026-03-04T17:15:24.350+05:30  INFO 15848 --- [SpringBootRestAPI] [restartedMain] o.s.boot.tomcat.TomcatWebServer          : Tomcat initialized with port 7799 (http)
+2026-03-04T17:15:24.362+05:30  INFO 15848 --- [SpringBootRestAPI] [restartedMain] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2026-03-04T17:15:24.362+05:30  INFO 15848 --- [SpringBootRestAPI] [restartedMain] o.apache.catalina.core.StandardEngine    : Starting Servlet engine: [Apache Tomcat/11.0.18]
+2026-03-04T17:15:24.438+05:30  INFO 15848 --- [SpringBootRestAPI] [restartedMain] b.w.c.s.WebApplicationContextInitializer : Root WebApplicationContext: initialization completed in 1517 ms
+2026-03-04T17:15:24.664+05:30  INFO 15848 --- [SpringBootRestAPI] [restartedMain] org.hibernate.orm.jpa                    : HHH008540: Processing PersistenceUnitInfo [name: default]
+2026-03-04T17:15:24.711+05:30  INFO 15848 --- [SpringBootRestAPI] [restartedMain] org.hibernate.orm.core                   : HHH000001: Hibernate ORM core version 7.2.4.Final
+2026-03-04T17:15:25.143+05:30  INFO 15848 --- [SpringBootRestAPI] [restartedMain] o.s.o.j.p.SpringPersistenceUnitInfo      : No LoadTimeWeaver setup: ignoring JPA class transformer
+2026-03-04T17:15:25.173+05:30  INFO 15848 --- [SpringBootRestAPI] [restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
+2026-03-04T17:15:25.534+05:30  INFO 15848 --- [SpringBootRestAPI] [restartedMain] com.zaxxer.hikari.pool.HikariPool        : HikariPool-1 - Added connection com.mysql.cj.jdbc.ConnectionImpl@1db9fea7
+2026-03-04T17:15:25.535+05:30  INFO 15848 --- [SpringBootRestAPI] [restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
+2026-03-04T17:15:25.767+05:30  WARN 15848 --- [SpringBootRestAPI] [restartedMain] org.hibernate.orm.deprecation            : HHH90000025: MySQLDialect does not need to be specified explicitly using 'hibernate.dialect' (remove the property setting and it will be selected by default)
+2026-03-04T17:15:25.785+05:30  INFO 15848 --- [SpringBootRestAPI] [restartedMain] org.hibernate.orm.connections.pooling    : HHH10001005: Database info:
+	Database JDBC URL [jdbc:mysql://localhost:3306/mlafeb]
+	Database driver: MySQL Connector/J
+	Database dialect: MySQLDialect
+	Database version: 8.0.42
+	Default catalog/schema: mlafeb/undefined
+	Autocommit mode: undefined/unknown
+	Isolation level: REPEATABLE_READ [default REPEATABLE_READ]
+	JDBC fetch size: none
+	Pool: DataSourceConnectionProvider
+	Minimum pool size: undefined/unknown
+	Maximum pool size: undefined/unknown
+2026-03-04T17:15:26.872+05:30  INFO 15848 --- [SpringBootRestAPI] [restartedMain] org.hibernate.orm.core                   : HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+2026-03-04T17:15:27.154+05:30  INFO 15848 --- [SpringBootRestAPI] [restartedMain] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2026-03-04T17:15:27.223+05:30  INFO 15848 --- [SpringBootRestAPI] [restartedMain] o.s.d.j.r.query.QueryEnhancerFactories   : Hibernate is in classpath; If applicable, HQL parser will be used.
+2026-03-04T17:15:27.392+05:30  WARN 15848 --- [SpringBootRestAPI] [restartedMain] JpaBaseConfiguration$JpaWebConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2026-03-04T17:15:27.431+05:30  INFO 15848 --- [SpringBootRestAPI] [restartedMain] o.s.v.b.OptionalValidatorFactoryBean     : Failed to set up a Bean Validation provider: jakarta.validation.NoProviderFoundException: Unable to create a Configuration, because no Jakarta Validation provider could be found. Add a provider like Hibernate Validator (RI) to your classpath.
+2026-03-04T17:15:27.878+05:30  INFO 15848 --- [SpringBootRestAPI] [restartedMain] o.s.b.h.a.H2ConsoleAutoConfiguration     : H2 console available at '/h2-console'. Database available at 'jdbc:mysql://localhost:3306/mlafeb'
+2026-03-04T17:15:27.922+05:30  INFO 15848 --- [SpringBootRestAPI] [restartedMain] o.s.b.a.e.web.EndpointLinksResolver      : Exposing 13 endpoints beneath base path '/actuator'
+2026-03-04T17:15:28.094+05:30  INFO 15848 --- [SpringBootRestAPI] [restartedMain] o.s.boot.tomcat.TomcatWebServer          : Tomcat started on port 7799 (http) with context path '/'
+2026-03-04T17:15:28.101+05:30  INFO 15848 --- [SpringBootRestAPI] [restartedMain] com.test.SpringBootRestApiApplication    : Started SpringBootRestApiApplication in 5.608 seconds (process running for 6.537)
+2026-03-04T17:15:28.414+05:30  INFO 15848 --- [SpringBootRestAPI] [RMI TCP Connection(4)-127.0.0.1] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring DispatcherServlet 'dispatcherServlet'
+2026-03-04T17:15:28.415+05:30  INFO 15848 --- [SpringBootRestAPI] [RMI TCP Connection(4)-127.0.0.1] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
+2026-03-04T17:15:28.416+05:30  INFO 15848 --- [SpringBootRestAPI] [RMI TCP Connection(4)-127.0.0.1] o.s.web.servlet.DispatcherServlet        : Completed initialization in 1 ms
+2026-03-04T17:15:55.278+05:30  INFO 15848 --- [SpringBootRestAPI] [http-nio-7799-exec-8] o.springdoc.api.AbstractOpenApiResource  : Init duration for springdoc-openapi is: 514 ms
+2026-03-04T17:16:38.253+05:30 DEBUG 15848 --- [SpringBootRestAPI] [http-nio-7799-exec-3] org.hibernate.SQL                        : select b1_0.id,b1_0.author,b1_0.name from book b1_0
+2026-03-04T17:17:18.419+05:30 DEBUG 15848 --- [SpringBootRestAPI] [http-nio-7799-exec-5] org.hibernate.SQL                        : select next_val as id_val from book_seq for update
+2026-03-04T17:17:18.828+05:30 DEBUG 15848 --- [SpringBootRestAPI] [http-nio-7799-exec-5] org.hibernate.SQL                        : update book_seq set next_val= ? where next_val=?
+2026-03-04T17:17:19.681+05:30 DEBUG 15848 --- [SpringBootRestAPI] [http-nio-7799-exec-5] org.hibernate.SQL                        : insert into book (author,name,id) values (?,?,?)
+2026-03-04T17:17:26.070+05:30 DEBUG 15848 --- [SpringBootRestAPI] [http-nio-7799-exec-6] org.hibernate.SQL                        : select b1_0.id,b1_0.author,b1_0.name from book b1_0
+2026-03-04T17:19:32.812+05:30 DEBUG 15848 --- [SpringBootRestAPI] [http-nio-7799-exec-7] org.hibernate.SQL                        : select b1_0.id,b1_0.author,b1_0.name from book b1_0
+2026-03-04T17:21:45.121+05:30 DEBUG 15848 --- [SpringBootRestAPI] [http-nio-7799-exec-9] org.hibernate.SQL                        : select b1_0.id,b1_0.author,b1_0.name from book b1_0
